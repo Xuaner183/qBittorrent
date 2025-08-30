@@ -161,7 +161,7 @@ fi
 if [ "$1" = "remove" ] || [ "$1" = "upgrade" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "failed-upgrade" ]; then
     # 停止服务
     if systemctl is-active --quiet qbittorrent-nox.service; then
-        systemctl stop qbittorrent-nox.service
+        systemctl stop qbittorrent-nox.service && rm -f /etc/systemd/system/qbittorrent-nox.service
     fi
 
     # 重新加载 systemd
